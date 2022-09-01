@@ -1,1 +1,25 @@
-<%= @person.name %>
+
+
+
+
+<div><%= @person.name %></div>
+<div><%= @person.title %></div>
+<div><%= @person.agency%></div>
+<div><%= @person.email %></div>
+<div><%= @person.phone %></div>
+<div><%= @person.address %></div>
+
+
+<% if @person.projects.length != 0 %> 
+<div><%=  @person.projects %></div>
+ <% end %> 
+
+
+
+
+<% if @person.materials.length != 0 %> 
+<div><%= @person.materials.length %></div>
+ <% end %> 
+<div><%= @person.notes %></div>
+
+
