@@ -40,7 +40,7 @@ class PeopleController < ApplicationController
       @person = Person.find_by(id: params[:id])
     end
   
-    def instrument_params
+    def person_params
       params.require(:person).permit(
         :name, 
         :address,

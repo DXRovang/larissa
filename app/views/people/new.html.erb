@@ -1,0 +1,18 @@
+<%= form_for @person do |form| %>
+
+<h3><%= form.label "Name"%></h3>  
+<%= form.text_field :name%>
+
+<h3><%= form.label "Title"%></h3>  
+<%= form.text_field :title%>
+
+<h3><%= form.label "Agency"%></h3>  
+<%= form.text_field :agency%>
+
+<h3><%= form.label "Email"%></h3>  
+<%= form.text_field :email%>
+
+
+
+<%= form.submit "Add Person"%>
+<% end %>
