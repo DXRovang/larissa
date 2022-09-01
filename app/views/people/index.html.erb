@@ -1,0 +1,10 @@
+<h1>All People I Know</h1>
+
+<% @people.each do |person| %>
+<li>
+<div><%= person.name %></div>
+<div><%= person.title %></div>
+<div><%= person.agency%></div>
+<div><%= person.email %></div>
+</li>
+<% end %>
