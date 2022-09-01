@@ -1,5 +1,5 @@
-<h1>All People I Know</h1>
+<h1>All My Peoples</h1>
 
 <% @people.each do |person| %>
-<div><%= person.name %></div>
+    <div><%= link_to person.name, person_path(person) %></div>
 <% end %>

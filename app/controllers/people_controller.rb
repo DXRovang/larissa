@@ -10,6 +10,7 @@ class PeopleController < ApplicationController
     end
   
     def create
+      split_links
       @person = Person.new(person_params)
       if @person.save 
         redirect_to person_path(@person)
@@ -19,6 +20,7 @@ class PeopleController < ApplicationController
     end
   
     def show
+      @people = Person.all
     end
   
     def edit
@@ -40,6 +42,12 @@ class PeopleController < ApplicationController
       @person = Person.find_by(id: params[:id])
     end
   
+    def split_links
+      params[:person][:projects] = params[:person][:projects].first.split(",").map(&:strip)
+      params[:person][:materials] = params[:person][:materials].first.split(",").map(&:strip)
+
+    end
+
     def person_params
       params.require(:person).permit(
         :name, 
@@ -49,8 +57,8 @@ class PeopleController < ApplicationController
         :title,
         :agency,
         :notes,
-        :projects,
-        :materials
+        projects: [],
+        materials: []
       )
     end
 end

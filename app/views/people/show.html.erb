@@ -1,25 +1,36 @@
 
 
-
-
+<div><%= link_to "Home", people_path(@people) %></div>
+<h2>Name</h2>
 <div><%= @person.name %></div>
+<h2>Title</h2>
 <div><%= @person.title %></div>
+<h2>Agency</h2>
 <div><%= @person.agency%></div>
+<h2>Email</h2>
 <div><%= @person.email %></div>
+<h2>Phone</h2>
 <div><%= @person.phone %></div>
+<h2>Address</h2>
 <div><%= @person.address %></div>
 
 
 <% if @person.projects.length != 0 %> 
-<div><%=  @person.projects %></div>
+<h2>Projects</h2>
+<% @person.projects.each do |project| %>
+<li><%= project %></li>
+<% end %>
  <% end %> 
-
-
 
 
 <% if @person.materials.length != 0 %> 
-<div><%= @person.materials.length %></div>
+<h2>Materials</h2>
+<div><% @person.materials.each do |material| %></div>
+<li><%= material %></li>
+<% end %>
  <% end %> 
+
+<h2>Notes</h2>
 <div><%= @person.notes %></div>
 
 
