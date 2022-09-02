@@ -1,10 +1,10 @@
 
 
-<div><%= link_to "Home", people_path(@people) %></div>
+<div><%= link_to "Home", people_path(Person.all) %></div>
 <h2>Name</h2>
 <div><%= @person.name %></div>
-<h2>Title</h2>
-<div><%= @person.title %></div>
+<h2>Job</h2>
+<div><%= @person.job.title %></div>
 <h2>Agency</h2>
 <div><%= @person.agency%></div>
 <h2>Email</h2>

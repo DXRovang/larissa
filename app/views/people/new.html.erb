@@ -1,10 +1,11 @@
+<div><%= link_to "Home", people_path(@people) %></div>
 <%= form_for @person do |form| %>
 
 <h3><%= form.label "Name"%></h3>  
 <%= form.text_field :name%>
 
-<h3><%= form.label "Title"%></h3>  
-<%= form.text_field :title%>
+<h3><%= form.label "Job"%></h3>  
+  <%= form.collection_select :job_id, Job.all, :id, :title %>
 
 <h3><%= form.label "Agency"%></h3>  
 <%= form.text_field :agency%>

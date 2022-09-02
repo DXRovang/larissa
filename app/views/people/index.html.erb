@@ -1,5 +1,12 @@
 <h1>All My Peoples</h1>
+<%= form_tag(people_path, method: :get) do %>
+<%= text_field_tag(:search, params[:search]) %>
+<%= submit_tag ("Filter") %>
+<% end %>  
+
 
 <% @people.each do |person| %>
-    <div><%= link_to person.name, person_path(person) %></div>
-<% end %>
+  <div><%= link_to person.name, person_path(person) %></div>
+<% end %>  
+
+<%= link_to "Add a Contact", new_person_path(@people) %>

@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
   
     def index
-      @people = Person.all
+    @people = Person.search(params[:search])
     end
    
     def new 
@@ -35,6 +35,7 @@ class PeopleController < ApplicationController
     def destroy
 
     end
+
   
     private
   
@@ -45,8 +46,16 @@ class PeopleController < ApplicationController
     def split_links
       params[:person][:projects] = params[:person][:projects].first.split(",").map(&:strip)
       params[:person][:materials] = params[:person][:materials].first.split(",").map(&:strip)
-
     end
+
+    # def filter_params
+    #   params.fetch(:title, {})
+    # end
+
+    # def filter(relation)
+    #   return relation unless filter_params.any?
+    #   relation.where(filter_params)
+    # end
 
     def person_params
       params.require(:person).permit(
@@ -57,6 +66,8 @@ class PeopleController < ApplicationController
         :title,
         :agency,
         :notes,
+        :search,
+        :job_id,
         projects: [],
         materials: []
       )

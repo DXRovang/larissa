@@ -1,0 +1,5 @@
+ <% @people.each do |person| %>
+ <% if person.title === "Producer" %>
+    <div><%= link_to person.name, person_path(person) %></div>
+<% end %> 
+<% end %> 
